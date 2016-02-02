@@ -23,7 +23,7 @@ if [[ "$FILEHASH" == "$NEWHASH" ]]; then
 
    if [[ "$STATUS" != "ALERT" ]]; then
 	echo "Previous status was not an alert! Send e-mail!"
-	echo "File $FILE on $HOSTNAME is the same since $MODTIME.  Please investigate!" | mail -s "Stale $FILE on $HOSTNAME" -a "From: $MAILFROM" $MAILTO
+	echo "Log file $FILE on $HOSTNAME has not been updated since $MODTIME.  It would appear that the process is not functioning properly.  Please investigate!" | mail -s "Stale $FILE on $HOSTNAME" -a "From: $MAILFROM" $MAILTO
    else
 	echo "Previous status was alert, e-mail already sent."
    fi
@@ -34,4 +34,4 @@ else
    echo "clear" > $STATUSFILE
 fi
 
-md5sum test.txt > test.txt.md5
+md5sum $FILE > $FILE.md5
