@@ -1,1 +1,4 @@
-*/15 * * * * /home/user/scripts/LogCheck/LogCheck.sh
+
+#Format to run script every 15 minutes, use 'sudo crontab -e' to edit the crontab file and add the below to the end
+
+*/15 * * * * /path/to/scripts/LogCheck/LogCheck.sh
