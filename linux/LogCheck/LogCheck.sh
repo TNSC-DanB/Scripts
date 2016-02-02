@@ -2,7 +2,8 @@
 
 FILE=test.txt
 STATUSFILE=LogCheck.status
-MAILTO=dburns@network-support.com
+MAILTO=recipient@contoso.com
+MAILFROM=sender@contoso.com
 
 FILEHASH=$(cat $FILE.md5)
 STATUS=$(cat $STATUSFILE)
@@ -22,7 +23,7 @@ if [[ "$FILEHASH" == "$NEWHASH" ]]; then
 
    if [[ "$STATUS" != "ALERT" ]]; then
 	echo "Previous status was not an alert! Send e-mail!"
-	echo "File $FILE on $HOSTNAME is the same since $MODTIME.  Please investigate!" | mail -s "Stale $FILE on $HOSTNAME" $MAILTO
+	echo "File $FILE on $HOSTNAME is the same since $MODTIME.  Please investigate!" | mail -s "Stale $FILE on $HOSTNAME" -a "From: $MAILFROM" $MAILTO
    else
 	echo "Previous status was alert, e-mail already sent."
    fi
