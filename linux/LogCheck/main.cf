@@ -1,0 +1,5 @@
+myhostname = host.domain.com
+myorigin = $mydomain
+relayhost = smtp.domain.com
+inet_interfaces = loopback-only
+mydestination =
