@@ -1,3 +1,5 @@
+#Postfix main.cf file
+
 myhostname = host.domain.com
 myorigin = $mydomain
 relayhost = smtp.domain.com
